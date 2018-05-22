@@ -144,7 +144,9 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+              plugins: [
+                ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+              ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -157,7 +159,43 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.(css|less)$/,
+            test: /\.css$/,
+            exclude: /node_modules|antd\.css/,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                  modules: true,   // 新增对css modules的支持
+                  localIdentName: '[name]__[local]__[hash:base64:5]', //
+                },
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  // Necessary for external CSS imports to work
+                  // https://github.com/facebookincubator/create-react-app/issues/2677
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                },
+              }
+            ],
+          },
+          {
+            test: /\.css$/,
+            include: /node_modules|antd\.css/,
             use: [
               require.resolve('style-loader'),
               {
@@ -185,10 +223,24 @@ module.exports = {
                     }),
                   ],
                 },
+              }
+            ],
+          },
+          {
+            test: /\.less$/,
+            exclude: [/node_modules/],
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                    modules: true,
+                    localIndexName:"[name]__[local]___[hash:base64:5]"
+                },
               },
-                {
-                    loader: require.resolve('less-loader') // compiles Less to CSS
-                }
+              {
+                loader: require.resolve('less-loader'), // compiles Less to CSS
+              },
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
