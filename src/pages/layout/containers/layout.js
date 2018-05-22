@@ -12,7 +12,7 @@ export default () => {
         <Header className={style["layout-header"]}>Header</Header>
         <Layout>
           <Sider className={style["layout-slider"]}>Sider</Sider>
-          <Content className={style["layout-content"]}>
+          <Content>
             <AddTodo/>
             <TodoList/>
           </Content>
