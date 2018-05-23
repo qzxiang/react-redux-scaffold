@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom';
-import Layout from '../pages/layout/containers/layout.js'
+import Layout from '../pages/layout/index.js'
 
 const page404 = ()=>(
     <div>404</div>
