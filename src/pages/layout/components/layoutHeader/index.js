@@ -3,16 +3,37 @@ import style from './style.less';
 import { Row, Col, Menu, Dropdown, Icon } from 'antd'
 import logo from '../../../../imgs/logo.png'
 
-const menu = (
+const SubMenu = Menu.SubMenu;
+
+const detail_menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="">1st menu item</a>
+      <a target="_blank" href="">nav1</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="">2nd menu item</a>
+      <a target="_blank" href="">nav2</a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="">3rd menu item</a>
+      <a target="_blank" href="">nav3</a>
+    </Menu.Item>
+    <SubMenu title="用户">
+      <Menu.Item>
+        <a target="_blank" href="">个人中心</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a target="_blank" href="">退出</a>
+      </Menu.Item>
+    </SubMenu >
+  </Menu>
+);
+
+const user_menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" href="">个人中心</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" href="">退出</a>
     </Menu.Item>
   </Menu>
 );
@@ -20,7 +41,7 @@ const menu = (
 class LayoutHeader extends Component {
   render() {
     return (
-      <Row>
+      <Row className={style.layout_header}>
         <Col xxl={4} xl={6} lg={7} md={8} sm={18} xs={12}>
           <a href="/" className={style.logo}>
             <img src={logo} alt="logo"/>
@@ -31,10 +52,10 @@ class LayoutHeader extends Component {
         </Col>
         <Col xxl={20} xl={18} lg={17} md={16} sm={6} xs={12}>
           <Row>
-            <Col xl={20} lg={18} md={16} sm={0} xs={0}>
+            <Col xl={20} lg={18} md={16} sm={0} xs={0} className="menu">
               <Menu
                 mode="horizontal"
-                defaultSelectedKeys={['2']}
+                defaultSelectedKeys={['1']}
                 style={{ lineHeight: '64px' }}
               >
                 <Menu.Item key="1">nav 1</Menu.Item>
@@ -43,11 +64,16 @@ class LayoutHeader extends Component {
               </Menu>
             </Col>
             <Col xl={4} lg={6} md={8} sm={0} xs={0}>
-              用户信息
+              <Dropdown overlay={user_menu} trigger={['click']}>
+                <div className={style.user_info}>
+                  <span>用户</span>
+                  <Icon type="caret-down" className={style.icon}/>
+                </div>
+              </Dropdown>
             </Col>
-            <Col lg={0} md={0} sm={24} xs={24} className={style.drop_down}>
-              <Dropdown overlay={menu}>
-                <Icon type="caret-down" className={style.icon}/>
+            <Col lg={0} md={0} sm={24} xs={24} className={style.show_detail}>
+              <Dropdown overlay={detail_menu} trigger={['click']}>
+                <Icon type="down-square" className={style.icon}/>
               </Dropdown>
             </Col>
           </Row>
