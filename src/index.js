@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/index.css';
-import './style/reset.css'
 import './style/antd.less'
 import Routes from './router/index';
 import store from './store';

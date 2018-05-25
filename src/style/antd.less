@@ -1,18 +1,24 @@
+@import "./color";
+
 :global{
   .menu {
     .ant-menu {
       background: transparent;
       color: #fff;
+      font-size: 16px;
     }
     .ant-menu-horizontal{
       border-bottom: 0;
+      .ant-menu-item{
+        transition: color 0s;
+      }
       .ant-menu-item-selected{
         border-bottom: 0;
-        color: #18a972;
+        color: @blue;
       }
       .ant-menu-item-active:hover{
         border-bottom: 0;
-        color: #18a972;
+        color: @blue;
       }
     }
   }

@@ -1,6 +1,7 @@
 import React from 'react'
-import LayoutHeader from './components/layoutHeader/index.js'
 import {Layout} from 'antd'
+import LayoutHeader from './components/layoutHeader/index.js'
+import LayoutFooter from "./components/layoutFooter";
 import style from './style.less'
 
 const { Header, Content, Footer } = Layout;
@@ -13,7 +14,9 @@ export default () => {
       </Header>
       <Content>
       </Content>
-      <Footer className={style.footer}>Footer</Footer>
+      <Footer className={style.footer}>
+        <LayoutFooter/>
+      </Footer>
     </Layout>
   )
 }
