@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom';
-import Layout from '../pages/layout/index.js'
+import Layout from '../pages/layout/index.js';
+import LoginForm from '../pages/login';
 
 const page404 = ()=>(
     <div>404</div>
 );
-const login=()=>(
-    <h1>登录页</h1>
-);
+// const login=()=>(
+//     <h1>登录页</h1>
+// );
+
+const login =()=>(
+    <LoginForm />
+)
 
 class Routes extends Component {
     render() {
