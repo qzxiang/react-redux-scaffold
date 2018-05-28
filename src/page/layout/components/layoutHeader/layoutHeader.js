@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import style from './style.less';
+import style from './layoutHeader.less';
 import { Row, Col, Menu, Dropdown, Icon } from 'antd'
-import logo from '../../../../imgs/logo.png'
+import logo from '../../../../image/logo.png'
 
 const SubMenu = Menu.SubMenu;
 

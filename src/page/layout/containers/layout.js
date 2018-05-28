@@ -1,8 +1,8 @@
 import React from 'react'
 import {Layout} from 'antd'
-import LayoutHeader from './components/layoutHeader/index.js'
-import LayoutFooter from "./components/layoutFooter";
-import style from './style.less'
+import LayoutHeader from '../components/layoutHeader/layoutHeader.js'
+import LayoutFooter from "../components/layoutFooter/layoutFooter.js";
+import style from './layout.less'
 
 const { Header, Content, Footer } = Layout;
 

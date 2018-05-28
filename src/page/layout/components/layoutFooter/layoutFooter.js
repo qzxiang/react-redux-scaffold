@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './style.less';
+import style from './layoutFooter.less';
 import {Row, Col, Icon} from 'antd'
 
 class LayoutFooter extends Component {

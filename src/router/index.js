@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Route, BrowserRouter, Link, Redirect, Switch} from 'react-router-dom';
-import Layout from '../pages/layout/index.js';
-import LoginForm from '../pages/login';
+import {view as Layout} from '../page/layout/index.js';
+import LoginForm from '../page/login';
 
 const page404 = ()=>(
     <div>404</div>
