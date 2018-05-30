@@ -1,10 +1,7 @@
 /*公共reducers*/
 import {combineReducers} from 'redux'
-
-const reducer =(state = 0, action) => {
-    return state
-};
+import {reducer as layoutInfo} from './page/layout/index'
 
 export default combineReducers({
-    reducer
+  layoutInfo
 })
