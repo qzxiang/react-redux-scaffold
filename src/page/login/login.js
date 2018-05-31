@@ -51,6 +51,6 @@ class NormalLoginForm extends Component {
     }
 }
 
-const LoginForm = Form.create()(NormalLoginForm);
+const Login = Form.create()(NormalLoginForm);
 
-export default LoginForm;
+export default Login;

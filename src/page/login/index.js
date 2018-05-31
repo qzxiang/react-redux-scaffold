@@ -1,3 +1,3 @@
-import LoginForm from './login.js';
+import Login from './login.js';
 
-export default LoginForm;
+export default Login;
