@@ -24,9 +24,15 @@ class Routes extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                  <Route path="/" exact component={Login}/>
                   <Route path='/error' component={Error}/>
-                  <Route path="/layout" component={Layout}/>
+                  <Route path="/login" component={Login}/>
+                  <Route path="/" render={() => (
+                    (true) ? (
+                      <Layout/>
+                    ) : (
+                      <Redirect to="/login"/>
+                    )
+                  )}/>
                 </Switch>
             </BrowserRouter>
         )

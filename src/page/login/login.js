@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import style from './login.css';
 
@@ -9,7 +10,9 @@ class NormalLoginForm extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                if(values.userName === "admin" && values.password === "admin"){
+                  this.props.history.push("/");
+                }
             }
         });
     }
@@ -51,6 +54,6 @@ class NormalLoginForm extends Component {
     }
 }
 
-const Login = Form.create()(NormalLoginForm);
+const Login = withRouter(Form.create()(NormalLoginForm));
 
 export default Login;

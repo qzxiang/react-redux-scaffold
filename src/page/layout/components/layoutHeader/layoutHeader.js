@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import style from './layoutHeader.less'
 import { Row, Col, Menu, Dropdown, Icon } from 'antd'
 import logo from '../../../../image/logo.png'
@@ -8,10 +9,10 @@ const SubMenu = Menu.SubMenu;
 const detail_menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" href="">nav1</a>
+      <Link to='/todo'>nav1</Link>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" href="">nav2</a>
+      <Link to='/todo'>nav2</Link>
     </Menu.Item>
     <Menu.Item>
       <a target="_blank" href="">nav3</a>
